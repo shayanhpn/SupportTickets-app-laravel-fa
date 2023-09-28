@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
+            $table->foreignUuid('user_id')->references('id')->on('users');
             $table->string('firstname');
             $table->string('email');
             $table->string('title');
             $table->string('section');
             $table->string('priority');
             $table->text('message');
+            $table->string('file');
             $table->timestamps();
         });
     }

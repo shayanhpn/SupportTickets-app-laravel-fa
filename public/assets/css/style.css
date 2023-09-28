@@ -1,0 +1,13 @@
+@font-face {
+    font-family: IRANSansX;
+    src: url('../fonts/IRANSansXFaNum-Regular.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: IRANSansX;
+}
+
+.form-control{
+    margin-bottom: 8px;
+}
