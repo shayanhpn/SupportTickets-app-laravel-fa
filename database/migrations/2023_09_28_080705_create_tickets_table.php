@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignUuid('user_id')->references('id')->on('users');
+            $table->foreignUuid('user_id')->nullable()->references('id')->on('users');
             $table->string('firstname');
             $table->string('email');
             $table->string('title');
             $table->string('section');
             $table->string('priority');
             $table->text('message');
-            $table->string('file');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

@@ -10,10 +10,12 @@
         <form action="" method="POST">
             @csrf
             <h4 class="text-center">ورود به حساب کاربری</h4>
-            <input type="email" class="form-control" placeholder="ایمیل" name="email">
-            <input type="password" class="form-control" placeholder="رمز عبور" name="password">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="ایمیل" name="email">
+            @error('email') <p class="text-danger">{{$message}}</p> @enderror
+            <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="رمز عبور" name="password">
+            @error('password') <p class="text-danger">{{$message}}</p> @enderror
             <div class="d-flex flex-row justify-content-center">
-                <button type="submit" class="btn btn-primary">ورود</button>
+                <button type="submit" class="btn btn-lg teal">ورود</button>
             </div>
         </form>
     </div>

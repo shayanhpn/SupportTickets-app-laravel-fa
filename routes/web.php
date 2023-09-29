@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Ticket\CreateTicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,13 @@ Route::get('/', function () {
 });
 
 Route::resource('register', RegisterController::class);
+
+
+
 Route::get('/login',[LoginController::class,'showLogin']);
 Route::post('/login',[LoginController::class,'login']);
+
+Route::get('/create-ticket',[CreateTicketController::class,'showCreateTicket']);
+Route::post('/create-ticket',[CreateTicketController::class,'createTicket']);
+
+
