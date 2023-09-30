@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function showLogin()
+    public function showLoginForm()
     {
         return view('auth.login');
     }
@@ -29,7 +29,7 @@ class LoginController extends Controller
         ]);
         if(auth()->attempt($loginFields)){
             session()->regenerate();
-            return 'LoggedIn Successfully';
+            return redirect()->route('client');
         }
         return 'Failed LoggingIn';
     }

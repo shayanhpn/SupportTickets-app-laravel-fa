@@ -35,26 +35,14 @@
                 @csrf
                 <div class="row">
                     <div class="col">
-                        <label for="">نام</label>
-                        <input type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname">
-                        @error('firstname') <p class="text-danger">{{$message}}</p> @enderror
-                    </div>
-                    <div class="col">
-                        <label for="">ایمیل</label>
-                        <input type="text" class="form-control @error('email') is-invalid @enderror" name="email">
-                        @error('email') <p class="text-danger">{{$message}}</p> @enderror
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <label for="">موضوع</label>
+                        <label for="">موضوع*</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title">
                         @error('title') <p class="text-danger">{{$message}}</p> @enderror
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label for="">بخش</label>
+                        <label for="">بخش*</label>
                         <select class="form-select @error('section') is-invalid @enderror" name="section">
                             <option value="فنی">فنی</option>
                             <option value="مالی">مالی</option>
@@ -63,7 +51,7 @@
                         @error('section') <p class="text-danger">{{$message}}</p> @enderror
                     </div>
                     <div class="col">
-                        <label for="">اولویت</label>
+                        <label for="">اولویت*</label>
                         <select class="form-select @error('priority') is-invalid @enderror" name="priority">
                             <option value="کم">کم</option>
                             <option value="متوسط">متوسط</option>
@@ -75,11 +63,15 @@
 
                 <div class="row mt-4">
                     <div class="col">
-                        <label for="">پیام</label>
+                        <label for="">پیام*</label>
                         <textarea name="message" class="form-control @error('message') is-invalid @enderror" cols="30" rows="10"></textarea>
                         @error('message') <p class="text-danger">{{$message}}</p> @enderror
                     </div>
                 </div>
+                    <div class="my-3">
+                        <label for="formFile" class="form-label">بارگذاری تصویر</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
                 <div class="d-flex flex-row justify-content-center">
                     <button type="submit" class="btn btn-lg btn-outline-primary">ثبت</button>
                 </div>

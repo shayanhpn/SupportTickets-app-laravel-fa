@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->foreignUuid('user_id')->nullable()->references('id')->on('users');
-            $table->string('firstname');
-            $table->string('email');
+            $table->uuid('id')->primary();;
+            $table->uuid('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->string('section');
             $table->string('priority');

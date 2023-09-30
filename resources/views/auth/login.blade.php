@@ -2,7 +2,7 @@
 <x-navbar>
 </x-navbar>
 @auth()
-    <h3>{{auth()->user()->firstname}}</h3>
+    <h3>{{auth()->user()->id}}</h3>
 @endauth
 
 <div class="container d-flex flex-row justify-content-center">

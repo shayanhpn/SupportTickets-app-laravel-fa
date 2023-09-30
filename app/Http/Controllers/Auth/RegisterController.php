@@ -4,30 +4,22 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
+    protected $redirectTo = RouteServiceProvider::HOME;
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function showRegistrationForm()
     {
         return view('auth.register');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function register(Request $request)
     {
         $registerFields = $request->validate([
             'firstname' => ['required','max:50'],
@@ -35,39 +27,11 @@ class RegisterController extends Controller
             'email' => ['required','email','max:255'],
             'password' => ['required','min:6','max:20','confirmed']
         ]);
-        User::create($registerFields);
-        return 'Done';
+
+        $user = User::create($registerFields);
+        Auth::login($user);
+        return redirect()->route('client');
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

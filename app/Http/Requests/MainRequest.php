@@ -22,30 +22,26 @@ class MainRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'firstname' => ['required','max:50'],
-            'email' => ['required','email','max:255'],
             'title' => ['required','max:255'],
             'priority' => ['required','in:کم,متوسط,زیاد'],
             'section' => ['required','in:فنی,مالی,ارتباط عمومی'],
-            'message' => ['required','max:2000']
+            'message' => ['required','max:2000'],
+            'file' => ['nullable','image','mimes:jpg,png,jpeg,gif','max:5120']
         ];
     }
     public function messages()
     {
         return [
-            'firstname.required' => 'وارد کردن نام الزامی است',
-            'firstname.max' => 'کارکترهای ورودی بیش از حد مجاز',
-            'email.required' => 'وارد کردن ایمیل الزامی است',
-            'email.email' => 'لطفا ایمیل مجاز وارد کنید',
-            'email.max' => 'کارکترهای ورودی بیش از حد مجاز',
             'title.required'=> 'وارد کردن عنوان الزامی است',
             'title.max' => 'کارکترهای ورودی بیش از حد مجاز',
             'priority.required' => 'وارد کردن اولویت الزامی می باشد',
             'priority.in' => 'لطفا از مقدار ورودی های مجاز استفاده کنید',
-            'section.reuqired' => 'وارد کردن بخش الزامی می باشد',
+            'section.required' => 'وارد کردن بخش الزامی می باشد',
             'section.in' => 'لطفا از مقدار ورودی های مجاز استفاده کنید',
             'message.required' => 'وارد کردن پیام الزامی می باشد',
-            'message.max' => 'کارکترهای ورودی بیش از حد مجاز'
+            'message.max' => 'کارکترهای ورودی بیش از حد مجاز',
+            'file.mimes' => 'لطفا از پسوند های مجاز تصویر مانند jpg,jpeg,png,gif استفاده نمایید',
+            'file.max' => 'حداکثر حجم مجاز جهت بارگذاری 5MB می باشد',
         ];
     }
 }
