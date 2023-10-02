@@ -14,9 +14,9 @@
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
 </body>
-<div class="container-fluid bottom-0 position-relative">
-    <footer class="d-flex flex-row justify-content-center align-items-center py-3 my-4 border-top">
-            <span class="mb-3 mb-md-0 text-muted">یک کپی رایت زیبا 2023</span>
-    </footer>
-</div>
+{{--<div class="container-fluid bottom-0 position-relative">--}}
+{{--    <footer class="d-flex flex-row justify-content-center align-items-center py-3 my-4 border-top">--}}
+{{--            <span class="mb-3 mb-md-0 text-muted">یک کپی رایت زیبا 2023</span>--}}
+{{--    </footer>--}}
+{{--</div>--}}
 </html>

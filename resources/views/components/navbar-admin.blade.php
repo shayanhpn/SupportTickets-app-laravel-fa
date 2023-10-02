@@ -15,6 +15,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">ارتباط با ما</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">لیست کاربران</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">لیست تیکت ها</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">تیکت های فعال</a>
+                </li>
             </ul>
 
         </div>

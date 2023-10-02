@@ -12,5 +12,9 @@ class UpdateUserController extends Controller
         return view('user.update-user',['user' => $id]);
     }
 
+    public function updateUser(Request $request,User $id)
+    {
+
+    }
 
 }
