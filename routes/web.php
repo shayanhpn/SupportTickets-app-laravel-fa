@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Ticket\ProccessTicketController;
 use App\Http\Controllers\Ticket\SendReplyController;
 use App\Http\Controllers\User\DashboardController;
@@ -34,4 +36,8 @@ Auth::routes();
 Route::get('/ticket/{id}',[ProccessTicketController::class,'showProccessTicket']);
 Route::post('/ticket/{id}',[SendReplyController::class,'sendReply'])->name('store.reply');
 
-Route::get('/admin',[\App\Http\Controllers\Admin\AdminDashboardController::class,'showAdminDashboard']);
+Route::prefix('/admin')->name('admin.')->group(function(){
+    Route::get('/panel',[AdminDashboardController::class,'showAdminDashboard']);
+    Route::get('/users',[UserController::class,'showUsers']);
+});
+
