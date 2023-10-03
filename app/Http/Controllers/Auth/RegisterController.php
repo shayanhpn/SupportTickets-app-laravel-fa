@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendVerificationEmail;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
@@ -29,6 +30,7 @@ class RegisterController extends Controller
         ]);
 
         $user = User::create($registerFields);
+        dispatch(new SendVerificationEmail($user));
         Auth::login($user);
         return redirect()->route('client');
 

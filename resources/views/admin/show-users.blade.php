@@ -1,14 +1,15 @@
 @extends('layouts.app')
 <x-navbar-admin></x-navbar-admin>
 <div class="container">
-    <div class="table-responsive">
-        <table class="table table-bordered">
+    <div class="table-responsive p-4 bg-white rounded shadow-sm">
+        <table class="table table-bordered table-hover">
             <thead>
             <tr>
                 <th>نام و نام خانوادگی</th>
                 <th>ایمیل</th>
                 <th>وضعیت تایید ایمیل</th>
                 <th>ایجاد شده در</th>
+                <th>عملیات</th>
             </tr>
             </thead>
             <tbody>
@@ -17,7 +18,8 @@
                     <td>{{$user->firstname}} {{$user->lastname}}</td>
                     <td>{{$user->email}}</td>
                     <td><h4><span class="badge bg-{{$user->email_verified_at != null ? 'success' : 'danger' }}">{{$user->email_verified_at != null ? 'دارد' : 'ندارد' }}</span></h4></td>
-                    <td></td>
+                    <td>{{$user->created_at}}</td>
+                    <td><a href=""></a></td>
                 </tr>
             @endforeach
             </tbody>
