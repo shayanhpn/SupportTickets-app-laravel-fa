@@ -36,6 +36,16 @@ a:hover{
     color:white;
     background-color: #088395;
 }
+.form-btn{
+    color:white;
+    border-color: #088395;
+    background-color: #088395;
+}
+.form-btn:hover{
+    color:#088395;
+    background-color: white;
+    border-color: #088395;
+}
 @media screen and (min-width:480px) and (max-width: 768px)  {
     .login-desktop{
         display: none;

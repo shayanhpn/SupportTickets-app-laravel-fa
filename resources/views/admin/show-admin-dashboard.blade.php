@@ -68,6 +68,7 @@
                 <div class="col-md-12 p-4">
                     <h4>آخرین تیکت ها</h4>
                     <hr>
+                    <div class="table-responsive">
                     <table class="table table-bordered table-hover">
                         <thead>
                         <tr>
@@ -92,6 +93,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

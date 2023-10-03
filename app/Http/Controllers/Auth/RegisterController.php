@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Jobs\SendVerificationEmail;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -20,16 +21,9 @@ class RegisterController extends Controller
     {
         return view('auth.register');
     }
-    public function register(Request $request)
+    public function register(UserRequest $request)
     {
-        $registerFields = $request->validate([
-            'firstname' => ['required','max:50'],
-            'lastname' => ['required','max:70'],
-            'email' => ['required','email','max:255'],
-            'password' => ['required','min:6','max:20','confirmed']
-        ]);
-
-        $user = User::create($registerFields);
+        $user = User::create($request->validated());
         dispatch(new SendVerificationEmail($user));
         Auth::login($user);
         return redirect()->route('client');
