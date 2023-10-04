@@ -14,9 +14,5 @@ class ProccessTicketController extends Controller
         $reply = Reply::where('ticket_id',$id->id)->get();
         return view('ticket.view-ticket',['ticket'=>$id,'reply'=>$reply]);
     }
-
-    public function proccessTicket()
-    {
-
-    }
+    
 }

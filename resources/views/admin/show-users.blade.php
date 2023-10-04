@@ -13,15 +13,23 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($users as $user)
+            @forelse($users as $user)
                 <tr>
                     <td>{{$user->firstname}} {{$user->lastname}}</td>
                     <td>{{$user->email}}</td>
-                    <td><h4><span class="badge bg-{{$user->email_verified_at != null ? 'success' : 'danger' }}">{{$user->email_verified_at != null ? 'دارد' : 'ندارد' }}</span></h4></td>
+                    <td class="text-center"><h5><span class="text-{{$user->email_verified_at != null ? 'success' : 'danger' }}">@if($user->email_verified_at != null) <i class="fa-solid fa-check"></i> @else <i class="fa-solid fa-xmark"></i> @endif</span></h5></td>
                     <td>{{$user->created_at}}</td>
-                    <td><a href=""></a></td>
+                    <td class="text-center">
+                        <a href="{{route('view.user',$user->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="نگاه"><i class="link-teal fa-solid fa-eye"></i></a>
+                        <a href="{{route('show.update.user',$user->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش"><i class="link-teal fa-solid fa-user-pen mx-3"></i></a>
+                        <a href="{{route('show.delete.user',$user->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"><i class="link-red fa-solid fa-trash"></i></a>
+                    </td>
                 </tr>
-            @endforeach
+                @empty
+                <tr>
+                    <td colspan="9">هیچ رکوردی برای نمایش وجود ندارد</td>
+                </tr>
+            @endforelse
             </tbody>
         </table>
     </div>

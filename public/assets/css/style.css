@@ -56,3 +56,21 @@ a:hover{
         display: none;
     }
 }
+
+:disabled{
+    color: #718096;
+}
+
+.link-teal{
+    color:#088395;
+}
+.link-teal:hover{
+    color: black;
+}
+
+.link-red{
+    color: #C70039;
+}
+.link-red:hover{
+    color: black;
+}

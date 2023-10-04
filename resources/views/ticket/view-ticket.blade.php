@@ -61,7 +61,7 @@
                 </div>
 
             @endforeach
-            <hr class="my-4">
+            <hr class="my-4" style="border: 1px dotted">
             <div class="card my-4">
                 <div class="card-header bg-info text-white">
                     <div class="d-flex flex-row justify-content-between">

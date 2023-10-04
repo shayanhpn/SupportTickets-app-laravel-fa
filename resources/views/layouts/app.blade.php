@@ -13,6 +13,7 @@
 
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="https://kit.fontawesome.com/add5785b56.js" crossorigin="anonymous"></script>
 </body>
 {{--<div class="container-fluid bottom-0 position-relative">--}}
 {{--    <footer class="d-flex flex-row justify-content-center align-items-center py-3 my-4 border-top">--}}
