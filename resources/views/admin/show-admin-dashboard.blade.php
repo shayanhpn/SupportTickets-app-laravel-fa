@@ -69,7 +69,7 @@
                     <h4>آخرین تیکت ها</h4>
                     <hr>
                     <div class="table-responsive">
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
                             <th scope="col">عنوان</th>

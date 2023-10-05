@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <p>شایان پوریان</p>
                     <div class="d-flex flex-row justify-content-center">
-                        <a class="btn btn-lightgreen" href="{{route('show.update.user',auth()->user()->id)}}">بروزرسانی مشخصات</a>
+                        <a class="btn btn-lightgreen" href="{{route('user.update.show',auth()->user()->id)}}">بروزرسانی مشخصات</a>
                     </div>
                 </div>
             </div>

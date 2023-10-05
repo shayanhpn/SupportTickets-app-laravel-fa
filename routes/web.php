@@ -41,7 +41,7 @@ Route::get('/ticket/{id}',[ProccessTicketController::class,'showProccessTicket']
 Route::post('/ticket/{id}',[SendReplyController::class,'sendReply'])->name('store.reply');
 
 Route::prefix('/admin')->name('admin.')->group(function(){
-    Route::get('/panel',[AdminDashboardController::class,'showAdminDashboard']);
+    Route::get('/panel',[AdminDashboardController::class,'showAdminDashboard'])->name('panel');
     Route::get('/users',[UserController::class,'showUsers'])->name('show.users');
     Route::get('/tickets',[ViewAllTicketsController::class,'showTickets'])->name('show.tickets');
     Route::get('/ticket/delete/{id}',[DeleteTicketController::class,'showDeleteTicket'])->name('show.delete.ticket');
@@ -50,7 +50,7 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::delete('/user/delete/{id}',[DeleteUserController::class,'deleteUser'])->name('delete.user');
 });
 
-Route::get('/user/edit/{id}',[UpdateUserController::class,'showUpdate'])->name('show.update.user');
+Route::get('/user/edit/{id}',[UpdateUserController::class,'showUpdate'])->name('user.update.show');
 Route::put('/user/edit/{id}',[UpdateUserController::class,'updateUser'])->name('update.user');
 
 Route::get('/user/view/{id}',[ViewUserController::class,'showSingleUser'])->name('view.user');

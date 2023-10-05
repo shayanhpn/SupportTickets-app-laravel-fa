@@ -25,7 +25,7 @@
             <div class="d-flex flex-row justify-content-center my-4">
                 <button type="submit" class="btn btn-lg form-btn">ثبت نام</button>
             </div>
-            <p>اگر حساب کاربری دارید لطفا <a href="{{route('login')}}">وارد</a> شوید</p>
+            <p>اگر حساب کاربری دارید لطفا <a href="{{route('login')}}" class="link-teal">وارد</a> شوید</p>
         </form>
     </div>
 </div>

@@ -27,7 +27,7 @@
 <script src="https://kit.fontawesome.com/add5785b56.js" crossorigin="anonymous"></script>
 </body>
 
-<div class="container-fluid {{Route::is('create-ticket','register','show.update.user') ? '' : 'position-absolute'}} w-100 bottom-0">
+<div class="container-fluid {{Route::is('create-ticket','register','show.update.user','show.ticket','admin.panel') ? '' : 'position-absolute'}} w-100 bottom-0">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">

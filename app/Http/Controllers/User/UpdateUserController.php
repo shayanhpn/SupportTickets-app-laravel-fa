@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 class UpdateUserController extends Controller
 {
     public function showUpdate(User $id){
-        return view('user.update-user',['user' => $id]);
+        if(auth()->user()->id == $id->id){
+            return view('user.update-user',['user' => $id]);
+        }
+        return back()->with('danger','دسترسی غیرمجاز');
     }
 
     public function updateUser(UserRequest $request,User $id)

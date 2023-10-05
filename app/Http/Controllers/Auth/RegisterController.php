@@ -24,7 +24,6 @@ class RegisterController extends Controller
     public function register(UserRequest $request)
     {
         $user = User::create($request->validated());
-        dispatch(new SendVerificationEmail($user));
         Auth::login($user);
         return redirect()->route('client');
 

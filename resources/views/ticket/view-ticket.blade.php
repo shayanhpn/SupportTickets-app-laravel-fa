@@ -46,10 +46,10 @@
         </div>
         <div class="col-md-9">
             <div class="card my-4">
-                <div class="card-header bg-info text-white" id="response-header">
+                <div class="card-header {{$ticket->status == 'بسته شده' ? 'bg-secondary' : 'bg-info'}} text-white" id="{{$ticket->status == 'بسته شده' ? '' : 'response-header'}}">
                     <div class="d-flex flex-row justify-content-between">
                         <div>پاسخ</div>
-                        <div><i class="fa-solid fa-square-caret-down fa-fade"></i></div>
+                        <div class="icon-div" >@if($ticket->status == 'بسته شده') <i class="fa-regular fa-rectangle-xmark fa-fade"></i> @else <i class="fa-solid fa-square-caret-down fa-fade"></i> @endif</div>
                     </div>
                 </div>
                 <div class="card-body" id="response-body">

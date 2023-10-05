@@ -79,6 +79,9 @@ a:hover{
 .link-teal{
     color:#088395;
 }
+.icon-div{
+    font-size: 20px;
+}
 .link-teal:hover{
     color: black;
 }

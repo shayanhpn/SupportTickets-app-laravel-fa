@@ -17,7 +17,7 @@
             <div class="d-flex flex-row justify-content-center my-4">
                 <button type="submit" class="btn btn-lg form-btn">ورود</button>
             </div>
-            <p>اگر حساب کاربری ندارید لطفا <a href="{{route('register')}}">ثبت نام</a> کنید</p>
+            <p>اگر حساب کاربری ندارید لطفا <a href="{{route('register')}}" class="link-teal">ثبت نام</a> کنید</p>
         </form>
     </div>
 </div>
