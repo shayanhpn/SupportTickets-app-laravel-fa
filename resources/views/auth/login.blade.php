@@ -1,9 +1,6 @@
 @extends('layouts.app')
 <x-navbar>
 </x-navbar>
-@auth()
-    <h3>{{auth()->user()->id}}</h3>
-@endauth
 
 <div class="container d-flex flex-row justify-content-center">
     <div class="p-4 bg-white rounded shadow-sm col-md-4">
@@ -19,6 +16,7 @@
             <div class="d-flex flex-row justify-content-center my-4">
                 <button type="submit" class="btn btn-lg form-btn">ورود</button>
             </div>
+            <p>اگر حساب کاربری ندارید لطفا <a href="{{route('register')}}">ثبت نام</a> کنید</p>
         </form>
     </div>
 </div>

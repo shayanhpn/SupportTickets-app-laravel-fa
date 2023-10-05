@@ -17,9 +17,10 @@
             <input type="password" class="form-control border-0 bg-light"  name="password">
             <label for="">تکرار رمز عبور</label>
             <input type="password" class="form-control border-0 bg-light" name="password_confirmation">
-            <div class="d-flex flex-row justify-content-center mt-4">
+            <div class="d-flex flex-row justify-content-center my-4">
                 <button type="submit" class="btn btn-lg form-btn">ثبت نام</button>
             </div>
+            <p>اگر حساب کاربری دارد لطفا <a href="{{route('login')}}">وارد</a> شوید</p>
         </form>
     </div>
 </div>

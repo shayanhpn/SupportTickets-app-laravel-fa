@@ -9,66 +9,50 @@
                 </div>
                 <div class="card-body">
                     <p>توسط: {{$ticket->user->firstname}}</p>
-                    <hr class="text-info">
+                    <hr>
                     <p>بخش: {{$ticket->section}}</p>
-                    <hr class="text-info">
+                    <hr>
                     <p>ارسال شده در: {{$ticket->created_at}}</p>
-                    <hr class="text-info">
+                    <hr>
                     <p>بروزرسانی شده در:  {{$ticket->updated_at}}</p>
-                    <hr class="text-info">
+                    <hr>
                     <p>اولویت: {{$ticket->priority}}</p>
-                    <hr class="text-info">
-                    <p>وضعیت: <span class="badge bg-warning p-2">{{$ticket->status}}</span></p>
-                    <hr class="text-info">
+                    <hr>
+                    <p>وضعیت: <span class=@if($ticket->status == 'در انتظار پاسخ') text-warning @elseif($ticket->status == 'بسته شده') 'text-danger' @else 'text-success'  @endif>{{$ticket->status}}</span></p>
+                    <hr>
                     <div class="d-flex flex-row justify-content-between">
-                        <button class="btn btn-success"> پاسخ به تیکت</button>
-                        <button class="btn btn-danger">بستن درخواست</button>
+                        <button class="btn form-btn" id="response-button" @if($ticket->status == 'بسته شده')disabled @endif> پاسخ به تیکت</button>
+                        @if($ticket->status == 'بسته شده')
+                            <button class="btn btn-danger">بسته شده</button>
+                        @else
+                            <a href="{{route('show.ticket.close',$ticket->id)}}" class="btn btn-danger">بستن درخواست</a>
+                        @endif
                     </div>
                 </div>
+            </div>
+            <div class="card mt-4 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    پشتیبانی
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="">پشتیبانی</a></li>
+                    <li class="list-group-item"><a href="">اخبار</a></li>
+                    <li class="list-group-item"><a href="">مرکز آموزش</a></li>
+                    <li class="list-group-item"><a href="">دانلود فایل</a></li>
+                    <li class="list-group-item"><a href="">وضعیت شبکه</a></li>
+                    <li class="list-group-item"><a href="">ارسال تیکت پشتیبانی</a></li>
+                </ul>
             </div>
         </div>
         <div class="col-md-9">
-            <div class="card">
-                <div class="card-header bg-success text-white">
-                    <div class="d-flex flex-row justify-content-between">
-                        <div>
-                            {{$ticket->user->firstname}} {{$ticket->user->lastname}} - <span class="fw-bold">{{$ticket->user->isAdmin ? 'پشتیبان' : 'کاربر' }}</span>
-                        </div>
-                        <div>
-                            {{$ticket->created_at}}
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>{{$ticket->message}}</p>
-                </div>
-            </div>
-            @foreach ($ticket->replies as $reply)
-                <div class="card my-4">
-                    <div class="card-header bg-{{$reply->user->isAdmin ? 'primary' : 'success'}} text-white">
-                        <div class="d-flex flex-row justify-content-between">
-                            <div>
-                                {{$reply->user->firstname}} {{$reply->user->lastname}} - <span class="fw-bold">{{$reply->user->isAdmin ? 'پشتیبان' : 'کاربر' }}</span>
-                            </div>
-                            <div>
-                                {{$reply->created_at}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p>{{$reply->message}}</p>
-                    </div>
-                </div>
-
-            @endforeach
-            <hr class="my-4" style="border: 1px dotted">
             <div class="card my-4">
-                <div class="card-header bg-info text-white">
+                <div class="card-header bg-info text-white" id="response-header">
                     <div class="d-flex flex-row justify-content-between">
-                        پاسخ
+                        <div>پاسخ</div>
+                        <div><i class="fa-solid fa-square-caret-down fa-fade"></i></div>
                     </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body" id="response-body">
                     <div class="row">
                         <div class="col-md-4">
 
@@ -83,13 +67,49 @@
                     <form action="{{route('store.reply',$ticket->id)}}" class="mt-4" method="POST">
                         @csrf
                         <label for=message">پیام</label>
-                        <textarea name="message" id="message" class="form-control" cols="30" rows="10"></textarea>
+                        <textarea name="message" id="message" class="form-control @error('message') is-invalid @enderror" cols="30" rows="5"></textarea>
+                        @error('message') <p class="text-danger">{{$message}}</p> @enderror
                         <div class="d-flex flex-row justify-content-center mt-4">
                             <button type="submit" class="btn btn-info text-white">ارسال پیام</button>
                         </div>
                     </form>
                 </div>
             </div>
+            <hr class="my-4" style="border: 1px dotted">
+            <div class="card">
+                <div class="card-header bg-teal text-white">
+                    <div class="d-flex flex-row justify-content-between">
+                        <div>
+                            {{$ticket->user->firstname}} {{$ticket->user->lastname}} - <span class="fw-bold">{{$ticket->user->isAdmin ? 'پشتیبان' : 'کاربر' }}</span>
+                        </div>
+                        <div>
+                            {{$ticket->created_at}}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>{{$ticket->message}}</p>
+                </div>
+            </div>
+            @foreach ($ticket->replies->sortBy('created_at') as $reply)
+                <div class="card my-4">
+                    <div class="card-header bg-{{$reply->user->isAdmin ? 'lightgreen' : 'teal'}} text-white">
+                        <div class="d-flex flex-row justify-content-between">
+                            <div>
+                                {{$reply->user->firstname}} {{$reply->user->lastname}} - <span class="fw-bold">{{$reply->user->isAdmin ? 'پشتیبان' : 'کاربر' }}</span>
+                            </div>
+                            <div>
+                                {{$reply->created_at}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>{{$reply->message}}</p>
+                    </div>
+                </div>
+            @endforeach
+
+
         </div>
     </div>
 </div>

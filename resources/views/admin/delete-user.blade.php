@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <x-navbar-admin></x-navbar-admin>
 <div class="container col-md-6">
-    <form action="{{route('delete.user',$user->id)}}" method="POST" class="p-4 bg-white shadow-sm rounded">
+    <form action="{{route('admin.delete.user',$user->id)}}" method="POST" class="p-4 bg-white shadow-sm rounded">
         @csrf
         @method('DELETE')
         <h4>آیا مایل به حذف کاربر {{$user->firstname}} {{$user->lastname}} می باشید؟ </h4>

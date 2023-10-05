@@ -60,7 +60,22 @@ a:hover{
 :disabled{
     color: #718096;
 }
-
+.bg-teal{
+    background-color: #088395;
+}
+.bg-lightgreen{
+    background-color: #64CCC5;
+}
+.btn-lightgreen{
+    background-color: white;
+    border-color: #1AACAC;
+    color: #1AACAC;
+}
+.btn-lightgreen:hover{
+    background-color: #1AACAC;
+    border-color: #1AACAC;
+    color: white;
+}
 .link-teal{
     color:#088395;
 }
@@ -73,4 +88,16 @@ a:hover{
 }
 .link-red:hover{
     color: black;
+}
+
+.btn-danger:hover{
+    background-color: white;
+    color: #dc3545;
+    border-color: #dc3545;
+}
+.fa-solid {
+    font-size: 20px;
+}
+#response-body{
+    display: none;
 }

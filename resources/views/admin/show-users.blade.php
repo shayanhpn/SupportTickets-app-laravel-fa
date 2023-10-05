@@ -22,7 +22,7 @@
                     <td class="text-center">
                         <a href="{{route('view.user',$user->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="نگاه"><i class="link-teal fa-solid fa-eye"></i></a>
                         <a href="{{route('show.update.user',$user->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="ویرایش"><i class="link-teal fa-solid fa-user-pen mx-3"></i></a>
-                        <a href="{{route('show.delete.user',$user->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"><i class="link-red fa-solid fa-trash"></i></a>
+                        <a href="{{route('admin.show.delete.user',$user->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"><i class="link-red fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
                 @empty

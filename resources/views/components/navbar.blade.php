@@ -17,11 +17,11 @@
                 </li>
                 <li class="vr mx-3 text-light"></li>
                 <li class="nav-item mt-1 login-mobile">
-                    <a class="btn btn-sm teal" href="#">ورود/ثبت نام</a>
+                    <a class="btn btn-sm teal" href="{{route('login')}}">ورود/ثبت نام</a>
                 </li>
             </ul>
 
         </div>
-        <a class="btn btn-sm teal login-desktop" href="#">ورود/ثبت نام</a>
+        <a class="btn btn-sm teal login-desktop" href="{{route('login')}}">ورود/ثبت نام</a>
     </div>
 </nav>

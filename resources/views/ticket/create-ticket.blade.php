@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
+            <div class="card shadow-sm" style="width: 18rem;">
+                <div class="card-header bg-teal text-white">
                      تیکت های اخیر شما
                 </div>
                 <ul class="list-group list-group-flush">
@@ -14,8 +14,8 @@
                     <li class="list-group-item"><a href="">موضوعات فرعی</a></li>
                 </ul>
             </div>
-            <div class="card mt-4" style="width: 18rem;">
-                <div class="card-header">
+            <div class="card mt-4 shadow-sm" style="width: 18rem;">
+                <div class="card-header bg-teal text-white">
                     پشتیبانی
                 </div>
                 <ul class="list-group list-group-flush">
@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-8">
             <form action="" class="p-4 shadow-sm bg-white rounded" method="POST">
-                <h4 class="mb-4"><span class="badge navy-blue">ارسال تیکت</span></h4>
+                <h4 class="mb-4"><span class="badge bg-teal">ارسال تیکت</span></h4>
                 <hr>
                 @csrf
                 <div class="row">
@@ -73,7 +73,7 @@
                         <input class="form-control" type="file" id="formFile">
                     </div>
                 <div class="d-flex flex-row justify-content-center">
-                    <button type="submit" class="btn btn-lg btn-outline-primary">ثبت</button>
+                    <button type="submit" class="btn btn-lg btn-lightgreen">ثبت</button>
                 </div>
             </form>
         </div>

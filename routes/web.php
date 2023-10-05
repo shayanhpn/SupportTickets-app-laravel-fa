@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DeleteTicketController;
 use App\Http\Controllers\Admin\DeleteUserController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ViewAllTicketsController;
+use App\Http\Controllers\Ticket\CloseTicketController;
 use App\Http\Controllers\Ticket\ProccessTicketController;
 use App\Http\Controllers\Ticket\SendReplyController;
 use App\Http\Controllers\User\DashboardController;
@@ -30,7 +31,7 @@ Route::get('/client',[DashboardController::class,'showDashboard'])->middleware('
 Route::get('/login',[LoginController::class,'showLogin']);
 Route::post('/login',[LoginController::class,'login']);
 
-Route::get('/create-ticket',[CreateTicketController::class,'showCreateTicket']);
+Route::get('/create-ticket',[CreateTicketController::class,'showCreateTicket'])->name('create-ticket');
 Route::post('/create-ticket',[CreateTicketController::class,'createTicket']);
 
 
@@ -45,6 +46,8 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/tickets',[ViewAllTicketsController::class,'showTickets'])->name('show.tickets');
     Route::get('/ticket/delete/{id}',[DeleteTicketController::class,'showDeleteTicket'])->name('show.delete.ticket');
     Route::delete('/ticket/delete/{id}',[DeleteTicketController::class,'deleteTicket'])->name('delete.ticket');
+    Route::get('/user/delete/{id}',[DeleteUserController::class,'showDeleteUser'])->name('show.delete.user');
+    Route::delete('/user/delete/{id}',[DeleteUserController::class,'deleteUser'])->name('delete.user');
 });
 
 Route::get('/user/edit/{id}',[UpdateUserController::class,'showUpdate'])->name('show.update.user');
@@ -52,4 +55,5 @@ Route::put('/user/edit/{id}',[UpdateUserController::class,'updateUser'])->name('
 
 Route::get('/user/view/{id}',[ViewUserController::class,'showSingleUser'])->name('view.user');
 
-Route::get('/user/delete/{id}',[DeleteUserController::class,'showDeleteUser'])->name('show.delete.user');
+Route::get('/ticket/close/{id}',[CloseTicketController::class,'showCloseTicket'])->name('show.ticket.close');
+Route::put('/ticket/close/{id}',[CloseTicketController::class,'closeTicket'])->name('ticket.close');

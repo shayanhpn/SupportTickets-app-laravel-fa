@@ -15,7 +15,7 @@ class CreateTicketController extends Controller
     }
 
     public function createTicket(MainRequest $request){
-        Ticket::create($request->validated());
-        return 'Created';
+        $ticket = Ticket::create($request->validated());
+        return redirect('/ticket/'.$ticket->id)->with('success','تیکت مورد نظر ایجاد شد');
     }
 }
