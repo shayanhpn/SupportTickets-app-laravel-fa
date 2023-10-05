@@ -7,6 +7,7 @@
         <form action="" method="POST">
             @csrf
             <h4 class="text-center">ساخت حساب کاربری</h4>
+            <hr>
             <label for="">نام</label>
             <input type="text" class="form-control border-0 bg-light @error('firstname') is-invalid @enderror" name="firstname">
             @error('firstname') <p class="text-danger">{{$message}}</p> @enderror

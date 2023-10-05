@@ -7,6 +7,7 @@
         <form action="" method="POST">
             @csrf
             <h4 class="text-center">ورود به حساب کاربری</h4>
+            <hr>
             <label for="">ایمیل</label>
             <input type="email" value="{{old('email')}}" class="form-control border-0 bg-light @error('email') is-invalid @enderror" name="email">
             @error('email') <p class="text-danger">{{$message}}</p> @enderror
