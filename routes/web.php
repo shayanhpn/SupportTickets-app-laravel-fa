@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('main');
-});
+})->name('main');
 Auth::routes(['verify' => true]);
 
 Route::get('/register',[RegisterController::class,'showRegistrationForm']);

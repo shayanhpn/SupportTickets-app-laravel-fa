@@ -10,7 +10,7 @@
                     <a class="nav-link active" aria-current="page" href="#">صفحه اصلی</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ثبت تیکت</a>
+                    <a class="nav-link" href="{{route('create-ticket')}}">ثبت تیکت</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ارتباط با ما</a>

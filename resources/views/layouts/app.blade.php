@@ -27,50 +27,22 @@
 <script src="https://kit.fontawesome.com/add5785b56.js" crossorigin="anonymous"></script>
 </body>
 
-    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top ">
-        <div class="col mb-3">
-            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                <h3>تیکت و پشتیبانی</h3>
+<div class="container-fluid {{Route::is('create-ticket','register','show.update.user') ? '' : 'position-absolute'}} w-100 bottom-0">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
             </a>
-
+            <span class="mb-3 mb-md-0 text-muted">کپی رایت 2023 - شایان</span>
         </div>
 
-        <div class="col mb-3">
-
-        </div>
-
-        <div class="col mb-3">
-            <h5>فهرست</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 1</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 2</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 3</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 4</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 5</a></li>
-            </ul>
-        </div>
-
-        <div class="col mb-3">
-            <h5>تماس با ما</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 1</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 2</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 3</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 4</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 5</a></li>
-            </ul>
-        </div>
-
-        <div class="col mb-3">
-            <h5>دسته بندی</h5>
-            <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 1</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 2</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 3</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 4</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">مورد 5</a></li>
-            </ul>
-        </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        </ul>
     </footer>
+</div>
+
 
 </html>
