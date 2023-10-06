@@ -2,13 +2,14 @@
 <x-navbar-admin></x-navbar-admin>
 <div class="container">
     <div class="table-responsive p-4 bg-white rounded shadow-sm">
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
                 <th>عنوان</th>
                 <th>بخش</th>
                 <th>اولویت</th>
                 <th>توسط</th>
+                <th>وضعیت</th>
                 <th>تعداد پاسخ ها</th>
                 <th>تاریخ ایجاد</th>
                 <th>عملیات</th>
@@ -21,6 +22,7 @@
                     <td>{{$ticket->section}}</td>
                     <td>{{$ticket->priority}}</td>
                     <td>{{$ticket->user->firstname}}</td>
+                    <td class=@if($ticket->status == 'بسته شده') 'text-danger' @elseif($ticket->status == 'در انتظار پاسخ') 'text-warning' @else 'text-success' @endif>{{$ticket->status}}</td>
                     <td>{{count($ticket->replies)}}</td>
                     <td>{{$ticket->created_at}}</td>
                     <td class="text-center">

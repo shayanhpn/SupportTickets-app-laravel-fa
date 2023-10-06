@@ -16,6 +16,6 @@ class DeleteTicketController extends Controller
     public function deleteTicket(Ticket $id)
     {
         $id->delete();
-        return redirect()->route('admin.show.tickets');
+        return redirect()->route('admin.show.tickets')->with('success','تیکت مورد نظر با موفقیت حذف شد');
     }
 }

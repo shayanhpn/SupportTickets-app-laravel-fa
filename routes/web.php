@@ -44,8 +44,8 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/panel',[AdminDashboardController::class,'showAdminDashboard'])->name('panel');
     Route::get('/users',[UserController::class,'showUsers'])->name('show.users');
     Route::get('/tickets',[ViewAllTicketsController::class,'showTickets'])->name('show.tickets');
-    Route::get('/ticket/delete/{id}',[DeleteTicketController::class,'showDeleteTicket'])->name('show.delete.ticket');
-    Route::delete('/ticket/delete/{id}',[DeleteTicketController::class,'deleteTicket'])->name('delete.ticket');
+    Route::get('/ticket/delete/{id}',[DeleteTicketController::class,'showDeleteTicket'])->name('show.delete.ticket')->middleware('admin');
+    Route::delete('/ticket/delete/{id}',[DeleteTicketController::class,'deleteTicket'])->name('delete.ticket')->middleware('admin');
     Route::get('/user/delete/{id}',[DeleteUserController::class,'showDeleteUser'])->name('show.delete.user');
     Route::delete('/user/delete/{id}',[DeleteUserController::class,'deleteUser'])->name('delete.user');
 });

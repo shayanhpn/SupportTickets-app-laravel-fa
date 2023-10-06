@@ -69,7 +69,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($tickets as $ticket)
+                        @forelse($tickets as $ticket)
                         <tr>
                             <th>{{$ticket->title}}</th>
                             <td>{{$ticket->section}}</td>
@@ -78,7 +78,11 @@
                             <td>{{$ticket->created_at}}</td>
                             <td class="text-center"><a href="{{route('show.ticket',$ticket->id)}}"><i class="link-teal fa-solid fa-eye"></i></a></td>
                         </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="9">رکوردی برای نمایش وجود ندارد</td>
+                            </tr>
+                        @endforelse
                         </tbody>
                     </table>
                 </div>
