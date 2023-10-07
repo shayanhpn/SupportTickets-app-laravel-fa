@@ -12,9 +12,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('create-ticket')}}">ثبت تیکت</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ارتباط با ما</a>
-                </li>
                 <li class="vr mx-3 text-light"></li>
                 <li class="nav-item mt-1 login-mobile">
                     <a class="btn btn-sm teal" href="{{route('login')}}">ورود/ثبت نام</a>

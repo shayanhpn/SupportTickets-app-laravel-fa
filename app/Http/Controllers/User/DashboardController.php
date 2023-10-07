@@ -12,11 +12,14 @@ class DashboardController extends Controller
     {
         if(auth()->check()){
             $ticket = Ticket::where('user_id',auth()->user()->id)->get();
-            $activeStatus = Ticket::where('user_id',auth()->user()->id)
+            $waitStatus = Ticket::where('user_id',auth()->user()->id)
                 ->where('status','در انتظار پاسخ')
-                ->orWhere('status','پاسخ داده شده')
-                ->get();
+                ->count();
+            $repliedStatus = Ticket::where('user_id',auth()->user()->id)
+                ->where('status','پاسخ داده شده')
+                ->count();
         }
+        $activeStatus = $waitStatus + $repliedStatus;
         return view('user.show-dashboard',['tickets'=>$ticket,'active' =>$activeStatus]);
     }
 }

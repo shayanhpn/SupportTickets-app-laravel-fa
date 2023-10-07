@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function showLoginForm()
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login')->with('danger','شما خارج شدید');
+    }
+    public function showLogin()
     {
         return view('auth.login');
     }

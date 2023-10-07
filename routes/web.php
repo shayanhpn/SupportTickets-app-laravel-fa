@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ViewAllTicketsController;
 use App\Http\Controllers\Ticket\CloseTicketController;
 use App\Http\Controllers\Ticket\ProccessTicketController;
 use App\Http\Controllers\Ticket\SendReplyController;
+use App\Http\Controllers\Ticket\UserTicketsController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -21,24 +22,32 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('main');
 })->name('main');
-Auth::routes(['verify' => true]);
 
-Route::get('/register',[RegisterController::class,'showRegistrationForm']);
+Route::get('/register',[RegisterController::class,'showRegistrationForm'])->name('register');
 Route::post('/register',[RegisterController::class,'register']);
 
-Route::get('/client',[DashboardController::class,'showDashboard'])->middleware('auth','verified')->name('client')->middleware('auth');
 
-Route::get('/login',[LoginController::class,'showLogin']);
+Route::get('/login',[LoginController::class,'showLogin'])->name('login');
 Route::post('/login',[LoginController::class,'login']);
+Route::post('/logout',[LoginController::class,'logout'])->name('logout');
+
 
 Route::get('/create-ticket',[CreateTicketController::class,'showCreateTicket'])->name('create-ticket');
 Route::post('/create-ticket',[CreateTicketController::class,'createTicket']);
 
+Route::prefix('/client')->name('client.')->group(function(){
+    Route::get('/panel',[DashboardController::class,'showDashboard'])->middleware('auth','verified')->name('client');
+    Route::get('/tickets',[UserTicketsController::class,'showAllUsersTickets'])->name('all.tickets');
+    Route::get('/tickets/active',[UserTicketsController::class,'showActiveUsersTickets'])->name('active.tickets');
+    Route::get('/user/edit/{id}',[UpdateUserController::class,'showUpdate'])->name('user.update.show');
+    Route::put('/user/edit/{id}',[UpdateUserController::class,'updateUser'])->name('update.user');
+    Route::get('/user/view/{id}',[ViewUserController::class,'showSingleUser'])->name('view.user');
+    Route::get('/ticket/close/{id}',[CloseTicketController::class,'showCloseTicket'])->name('show.ticket.close');
+    Route::put('/ticket/close/{id}',[CloseTicketController::class,'closeTicket'])->name('ticket.close');
+    Route::get('/ticket/{id}',[ProccessTicketController::class,'showProccessTicket'])->name('show.ticket');
+    Route::post('/ticket/{id}',[SendReplyController::class,'sendReply'])->name('store.reply');
+});
 
-Auth::routes();
-
-Route::get('/ticket/{id}',[ProccessTicketController::class,'showProccessTicket'])->name('show.ticket');
-Route::post('/ticket/{id}',[SendReplyController::class,'sendReply'])->name('store.reply');
 
 Route::prefix('/admin')->name('admin.')->group(function(){
     Route::get('/panel',[AdminDashboardController::class,'showAdminDashboard'])->name('panel');
@@ -50,10 +59,6 @@ Route::prefix('/admin')->name('admin.')->group(function(){
     Route::delete('/user/delete/{id}',[DeleteUserController::class,'deleteUser'])->name('delete.user');
 });
 
-Route::get('/user/edit/{id}',[UpdateUserController::class,'showUpdate'])->name('user.update.show');
-Route::put('/user/edit/{id}',[UpdateUserController::class,'updateUser'])->name('update.user');
 
-Route::get('/user/view/{id}',[ViewUserController::class,'showSingleUser'])->name('view.user');
 
-Route::get('/ticket/close/{id}',[CloseTicketController::class,'showCloseTicket'])->name('show.ticket.close');
-Route::put('/ticket/close/{id}',[CloseTicketController::class,'closeTicket'])->name('ticket.close');
+

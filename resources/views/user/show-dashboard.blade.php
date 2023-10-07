@@ -8,7 +8,7 @@
                        اطلاعات شما
                 </div>
                 <div class="card-body">
-                    <p>شایان پوریان</p>
+                    <p>{{auth()->user()->firstname}} {{auth()->user()->lastname}}</p>
                     <div class="d-flex flex-row justify-content-center">
                         <a class="btn btn-lightgreen" href="{{route('user.update.show',auth()->user()->id)}}">بروزرسانی مشخصات</a>
                     </div>
@@ -37,14 +37,14 @@
                             </div>
                             <div class="card-body">
                                 <h6 class="card-subtitle mb-2 text-body-secondary">در انتظار پاسخ و پاسخ داده شده</h6>
-                                <h3 class="card-text fw-bold">{{count($active)}}</h3>
+                                <h3 class="card-text fw-bold">{{$active}}</h3>
                             </div>
                         </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card shadow-sm" style="width: 18rem;">
                         <div class="card-header bg-lightgreen text-white">
-                            کل تیکت های فعال شما
+                            کل تیکت های شما
                         </div>
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-body-secondary">کل تیکت های ایجاد شده</h6>

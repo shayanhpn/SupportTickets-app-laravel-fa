@@ -12,21 +12,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('create-ticket')}}">ثبت تیکت</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ارتباط با ما</a>
-                </li>
+                @if(auth()->user()->isAdmin)
                 <li class="nav-item">
                     <a class="nav-link" href="#">لیست کاربران</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">لیست تیکت ها</a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="#">تیکت های فعال</a>
                 </li>
             </ul>
 
         </div>
-        <a class="login-desktop">سلام شایان</a>
+        <a class="login-desktop mx-4">درود {{auth()->user()->firstname}}</a>
+        <form class="mt-3" action="{{route('logout')}}" method="POST">@csrf @method('POST')<button type="submit" class="btn btn-danger">خروج</button></form>
     </div>
 </nav>
