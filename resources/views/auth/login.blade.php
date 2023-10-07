@@ -1,6 +1,5 @@
 @extends('layouts.app')
-<x-navbar>
-</x-navbar>
+<x-navbar-admin></x-navbar-admin>
 
 <div class="container d-flex flex-row justify-content-center">
     <div class="p-4 bg-white rounded shadow-sm col-md-4">

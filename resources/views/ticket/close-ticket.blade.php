@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <x-navbar-admin></x-navbar-admin>
 <div class="container col-md-6">
-    <form action="{{route('ticket.close',$ticket->id)}}" method="POST" class="p-4 bg-white shadow-sm rounded">
+    <form action="{{route('client.ticket.close',$ticket->id)}}" method="POST" class="p-4 bg-white shadow-sm rounded">
         @csrf
         @method('PUT')
        <h4>آیا مایل به بستن تیکت با عنوان {{$ticket->title}} می باشید؟ </h4>

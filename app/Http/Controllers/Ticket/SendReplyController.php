@@ -36,6 +36,6 @@ class SendReplyController extends Controller
         }
 
 
-        return redirect('/ticket/' . $reply->ticket_id)->with('success','پیام شما با موفقیت ایجاد شد');
+        return redirect('/client/ticket/' . $reply->ticket_id)->with('success','پیام شما با موفقیت ایجاد شد');
     }
 }

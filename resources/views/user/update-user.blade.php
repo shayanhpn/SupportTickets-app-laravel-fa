@@ -4,7 +4,7 @@
         <div class="bg-white p-4 shadow-sm rounded col-md-4">
             <h3>بروزرسانی کاربر</h3>
             <hr>
-            <form action="{{route('update.user',$user->id)}}" method="POST">
+            <form action="{{route('client.update.user',$user->id)}}" method="POST">
                 @csrf
                 @method('PUT')
                 <label for="">نام</label>

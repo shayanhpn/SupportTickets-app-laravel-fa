@@ -27,20 +27,9 @@
 <script src="https://kit.fontawesome.com/add5785b56.js" crossorigin="anonymous"></script>
 </body>
 
-<div class="container-fluid {{Route::is('create-ticket','register','show.update.user','show.ticket','admin.panel') ? '' : 'position-absolute'}} w-100 bottom-0">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
-            </a>
+<div class="container-fluid {{Route::is('create-ticket','register','client.user.update.show','client.show.ticket','admin.panel','client.show.ticket','admin.show.users') ? '' : 'position-absolute'}} w-100 bottom-0">
+    <footer class="d-flex flex-row justify-content-center py-3 my-4 border-top">
             <span class="mb-3 mb-md-0 text-muted">کپی رایت 2023 - شایان</span>
-        </div>
-
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
-        </ul>
     </footer>
 </div>
 

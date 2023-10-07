@@ -27,7 +27,7 @@ class RegisterController extends Controller
     {
         $user = User::create($request->validated());
         Auth::login($user);
-        return redirect()->route('client')->with('success','با موفقیت وارد شدید');
+        return redirect()->route('client.panel')->with('success','با موفقیت وارد شدید');
 
     }
 

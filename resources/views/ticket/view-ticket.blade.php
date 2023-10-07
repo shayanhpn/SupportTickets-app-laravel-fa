@@ -25,7 +25,7 @@
                         @if($ticket->status == 'بسته شده')
                             <button class="btn btn-danger">بسته شده</button>
                         @else
-                            <a href="{{route('show.ticket.close',$ticket->id)}}" class="btn btn-danger">بستن درخواست</a>
+                            <a href="{{route('client.show.ticket.close',$ticket->id)}}" class="btn btn-danger">بستن درخواست</a>
                         @endif
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                             <input type="text" class="form-control" value="{{$ticket->user->email}}" disabled>
                         </div>
                     </div>
-                    <form action="{{route('store.reply',$ticket->id)}}" class="mt-4" method="POST">
+                    <form action="{{route('client.store.reply',$ticket->id)}}" class="mt-4" method="POST">
                         @csrf
                         <label for=message">پیام</label>
                         <textarea name="message" id="message" class="form-control @error('message') is-invalid @enderror" cols="30" rows="5"></textarea>

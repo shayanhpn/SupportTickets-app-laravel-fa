@@ -19,6 +19,6 @@ class UserTicketsController extends Controller
             ->orWhere('status','در انتظار پاسخ')
             ->get();
 
-        return view('ticket.active-tickets',['tickets' => $tickets]);
+        return view('user.active-tickets',['tickets' => $tickets]);
     }
 }

@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <p>{{auth()->user()->firstname}} {{auth()->user()->lastname}}</p>
                     <div class="d-flex flex-row justify-content-center">
-                        <a class="btn btn-lightgreen" href="{{route('user.update.show',auth()->user()->id)}}">بروزرسانی مشخصات</a>
+                        <a class="btn btn-lightgreen" href="{{route('client.user.update.show',auth()->user()->id)}}">بروزرسانی مشخصات</a>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                             <td>{{$ticket->priority}}</td>
                             <td class=@if($ticket->status == 'در انتظار پاسخ') 'text-warning' @elseif($ticket->status == 'بسته شده') 'text-danger' @else 'text-success' @endif>{{$ticket->status}}</td>
                             <td>{{$ticket->created_at}}</td>
-                            <td class="text-center"><a href="{{route('show.ticket',$ticket->id)}}"><i class="link-teal fa-solid fa-eye"></i></a></td>
+                            <td class="text-center"><a href="{{route('client.show.ticket',$ticket->id)}}"><i class="link-teal fa-solid fa-eye"></i></a></td>
                         </tr>
                         @empty
                             <tr>

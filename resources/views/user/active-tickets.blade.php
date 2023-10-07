@@ -24,7 +24,7 @@
                     <td>{{count($ticket->replies)}}</td>
                     <td>{{$ticket->created_at}}</td>
                     <td class="text-center">
-                        <a href="{{route('show.ticket',$ticket->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="نگاه"><i class="link-teal fa-solid fa-eye"></i></a>
+                        <a href="{{route('client.show.ticket',$ticket->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="نگاه"><i class="link-teal fa-solid fa-eye"></i></a>
                     </td>
                 </tr>
             @empty

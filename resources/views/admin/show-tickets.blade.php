@@ -26,7 +26,7 @@
                     <td>{{count($ticket->replies)}}</td>
                     <td>{{$ticket->created_at}}</td>
                     <td class="text-center">
-                        <a href="{{route('show.ticket',$ticket->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="نگاه"><i class="link-teal fa-solid fa-eye"></i></a>
+                        <a href="{{route('client.show.ticket',$ticket->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="نگاه"><i class="link-teal fa-solid fa-eye"></i></a>
                         <a class="mx-2" href="{{route('admin.show.delete.ticket',$ticket->id)}}" data-bs-toggle="tooltip" data-bs-placement="top" title="حذف"><i class="link-red fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>

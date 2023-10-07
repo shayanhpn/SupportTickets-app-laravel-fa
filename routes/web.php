@@ -35,12 +35,12 @@ Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 Route::get('/create-ticket',[CreateTicketController::class,'showCreateTicket'])->name('create-ticket');
 Route::post('/create-ticket',[CreateTicketController::class,'createTicket']);
 
-Route::prefix('/client')->name('client.')->group(function(){
-    Route::get('/panel',[DashboardController::class,'showDashboard'])->middleware('auth','verified')->name('client');
+Route::prefix('/client')->name('client.')->middleware('auth')->group(function(){
+    Route::get('/panel',[DashboardController::class,'showDashboard'])->name('panel');
     Route::get('/tickets',[UserTicketsController::class,'showAllUsersTickets'])->name('all.tickets');
     Route::get('/tickets/active',[UserTicketsController::class,'showActiveUsersTickets'])->name('active.tickets');
-    Route::get('/user/edit/{id}',[UpdateUserController::class,'showUpdate'])->name('user.update.show');
-    Route::put('/user/edit/{id}',[UpdateUserController::class,'updateUser'])->name('update.user');
+    Route::get('/user/edit/{id}',[UpdateUserController::class,'showUpdate'])->name('user.update.show')->middleware('admin');
+    Route::put('/user/edit/{id}',[UpdateUserController::class,'updateUser'])->name('update.user')->middleware('admin');
     Route::get('/user/view/{id}',[ViewUserController::class,'showSingleUser'])->name('view.user');
     Route::get('/ticket/close/{id}',[CloseTicketController::class,'showCloseTicket'])->name('show.ticket.close');
     Route::put('/ticket/close/{id}',[CloseTicketController::class,'closeTicket'])->name('ticket.close');
@@ -49,7 +49,7 @@ Route::prefix('/client')->name('client.')->group(function(){
 });
 
 
-Route::prefix('/admin')->name('admin.')->group(function(){
+Route::prefix('/admin')->name('admin.')->middleware('admin')->group(function(){
     Route::get('/panel',[AdminDashboardController::class,'showAdminDashboard'])->name('panel');
     Route::get('/users',[UserController::class,'showUsers'])->name('show.users');
     Route::get('/tickets',[ViewAllTicketsController::class,'showTickets'])->name('show.tickets');

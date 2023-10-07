@@ -34,8 +34,8 @@ class LoginController extends Controller
         ]);
         if(auth()->attempt($loginFields)){
             session()->regenerate();
-            return redirect()->route('client');
+            return redirect()->route('client.panel')->with('success','با موفقیت وارد شدید');
         }
-        return 'Failed LoggingIn';
+        return back()->with('danger','نام کاربری / رمز عبور اشتباه است');
     }
 }

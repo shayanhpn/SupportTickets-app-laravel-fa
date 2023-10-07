@@ -1,6 +1,5 @@
 @extends('layouts.app')
-<x-navbar>
-</x-navbar>
+<x-navbar-admin></x-navbar-admin>
 <div class="container">
     <div class="row">
         <div class="col-md-4">
