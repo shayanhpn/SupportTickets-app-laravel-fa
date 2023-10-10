@@ -2,7 +2,7 @@
 <x-navbar-admin></x-navbar-admin>
 <div class="container">
     <div class="table-responsive p-4 bg-white rounded shadow-sm">
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover table-striped">
             <thead>
             <tr>
                 <th>نام و نام خانوادگی</th>

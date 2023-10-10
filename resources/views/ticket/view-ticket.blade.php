@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-teal text-white">
                     اطلاعات شما
                 </div>
                 <div class="card-body">
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="card mt-4 shadow-sm">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-teal text-white">
                     پشتیبانی
                 </div>
                 <ul class="list-group list-group-flush">
@@ -77,7 +77,7 @@
             </div>
             <hr class="my-4" style="border: 1px dotted">
             <div class="card">
-                <div class="card-header bg-teal text-white">
+                <div class="card-header bg-lightgreen text-white">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
                             {{$ticket->user->firstname}} {{$ticket->user->lastname}} - <span class="fw-bold">{{$ticket->user->isAdmin ? 'پشتیبان' : 'کاربر' }}</span>

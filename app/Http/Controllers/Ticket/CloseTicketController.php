@@ -16,6 +16,6 @@ class CloseTicketController extends Controller
     public function closeTicket(Ticket $id)
     {
         Ticket::where('id',$id->id)->update(['status' => 'بسته شده']);
-        return redirect('/ticket/' . $id->id)->with('danger','تیکت مورد مظر با موفقیت بسته شد');
+        return redirect('client/ticket/' . $id->id)->with('danger','تیکت مورد مظر با موفقیت بسته شد');
     }
 }

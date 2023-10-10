@@ -10,7 +10,7 @@ class ViewAllTicketsController extends Controller
 {
     public function showTickets()
     {
-        $tickets = Ticket::all();
+        $tickets = Ticket::orderBy('created_at','desc')->paginate(10);
         return view('admin.show-tickets',['tickets' => $tickets]);
     }
 }

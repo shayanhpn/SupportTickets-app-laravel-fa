@@ -34,6 +34,10 @@ class LoginController extends Controller
         ]);
         if(auth()->attempt($loginFields)){
             session()->regenerate();
+            if(auth()->user()->isAdmin)
+            {
+                return redirect()->route('admin.panel')->with('success','با موفقیت وارد شدید');
+            }
             return redirect()->route('client.panel')->with('success','با موفقیت وارد شدید');
         }
         return back()->with('danger','نام کاربری / رمز عبور اشتباه است');

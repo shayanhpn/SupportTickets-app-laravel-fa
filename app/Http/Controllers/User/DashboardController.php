@@ -21,9 +21,9 @@ class DashboardController extends Controller
         }
         $activeStatus = $waitStatus + $repliedStatus;
 
-//        if(auth()->user()->isAdmin){
-//            return redirect()->route('admin.panel');
-//        }
+        if(auth()->user()->isAdmin){
+            return redirect()->route('admin.panel');
+        }
         return view('user.show-dashboard',['tickets'=>$ticket,'active' =>$activeStatus]);
     }
 }
