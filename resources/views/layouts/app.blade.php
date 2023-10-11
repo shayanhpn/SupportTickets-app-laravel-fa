@@ -27,7 +27,7 @@
 <script src="https://kit.fontawesome.com/add5785b56.js" crossorigin="anonymous"></script>
 </body>
 
-<div class="container-fluid {{Route::is('create-ticket','register','client.user.update.show','client.show.ticket','admin.panel','client.show.ticket','admin.show.users','create-ticket') ? '' : 'position-absolute'}} w-100 bottom-0">
+<div class="container-fluid {{Route::is('create-ticket','register','client.user.update.show','client.show.ticket','admin.panel','client.show.ticket','admin.show.users','create-ticket','admin.show.tickets') ? '' : 'position-absolute'}} w-100 bottom-0">
     <footer class="d-flex flex-row justify-content-center py-3 my-4 border-top">
             <span class="mb-3 mb-md-0 text-muted">کپی رایت 2023 - شایان</span>
     </footer>

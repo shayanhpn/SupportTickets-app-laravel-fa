@@ -40,8 +40,8 @@ Route::prefix('/client')->name('client.')->middleware('auth')->group(function(){
     Route::get('/panel',[DashboardController::class,'showDashboard'])->name('panel');
     Route::get('/tickets',[UserTicketsController::class,'showAllUsersTickets'])->name('all.tickets');
     Route::get('/tickets/active',[UserTicketsController::class,'showActiveUsersTickets'])->name('active.tickets');
-    Route::get('/user/edit/{id}',[UpdateUserController::class,'showUpdate'])->name('user.update.show')->middleware('admin');
-    Route::put('/user/edit/{id}',[UpdateUserController::class,'updateUser'])->name('update.user')->middleware('admin');
+    Route::get('/user/edit/{id}',[UpdateUserController::class,'showUpdate'])->name('user.update.show');
+    Route::put('/user/edit/{id}',[UpdateUserController::class,'updateUser'])->name('update.user');
     Route::get('/user/view/{id}',[ViewUserController::class,'showSingleUser'])->name('view.user');
     Route::get('/ticket/close/{id}',[CloseTicketController::class,'showCloseTicket'])->name('show.ticket.close');
     Route::put('/ticket/close/{id}',[CloseTicketController::class,'closeTicket'])->name('ticket.close');
