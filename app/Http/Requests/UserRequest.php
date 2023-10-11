@@ -33,7 +33,9 @@ class UserRequest extends FormRequest
             'password.required' => 'وارد کردن رمز عبور الزامی است',
             'password.min' => 'حداقل کاراکتر برای رمز عبور 6 حرف و رقم می باشد',
             'password.max' => 'حداکثر تعداد ورودی رمز عبور 20 حرف و رقم می باشد',
-            'password.confirmed' => 'رمز عبور یکسان نمی باشد'
+            'password.confirmed' => 'رمز عبور یکسان نمی باشد',
+            'captcha.required' => 'وارد کردن کد امنیتی الزامی است',
+            'captcha.captcha' => 'لطفا کد امنیتی صحیح را وارد کنید',
         ];
     }
 
@@ -43,7 +45,8 @@ class UserRequest extends FormRequest
             'firstname' => ['required','max:50'],
             'lastname' => ['required','max:70'],
             'email' => ['required','email','max:255'],
-            'password' => ['required','min:6','max:20','confirmed']
+            'password' => ['required','min:6','max:20','confirmed'],
+            'captcha' => ['required','captcha']
         ];
     }
 }

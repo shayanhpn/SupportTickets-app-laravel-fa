@@ -13,13 +13,16 @@ class SendReplyController extends Controller
     {
         $request->validate([
             'message' => ['required','max:255'],
-            'file' => ['nullable','image','mimes:jpg,png,jpeg,gif','max:5120']
+            'file' => ['nullable','image','mimes:jpg,png,jpeg,gif','max:5120'],
+            'captcha' => ['required','captcha']
         ],[
             'message.required' => 'لطفا پیام خود را بنویسید',
             'message.max' => 'حداکثر کارکتر وروردی 255 کارکتر می باشد',
             'file.image' => 'لطفا از پسوندهای معتبر تصویر استفاده کنید',
             'file.mimes' => 'لطفا از پسوند های مجاز تصویر مانند jpg,jpeg,png,gif استفاده نمایید',
             'file.max' => 'حداکثر حجم مجاز جهت بارگذاری 5MB می باشد',
+            'captcha.required' => 'وارد کردن کد امنیتی الزامی است',
+            'captcha.captcha' => 'لطفا کد امنیتی صحیح را وارد کنید',
         ]);
         $reply = new Reply;
         $reply->user_id = auth()->user()->id;
