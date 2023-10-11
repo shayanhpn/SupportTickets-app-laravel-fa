@@ -15,7 +15,17 @@ class CreateTicketController extends Controller
     }
 
     public function createTicket(MainRequest $request){
-        $ticket = Ticket::create($request->validated());
+        $ticket = new Ticket;
+        if($request->hasFile('file'))
+        {
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('uploads',$filename,'public');
+            $ticket->file = $filename;
+        }
+
+        $ticket->fill($request->validated());
+        $ticket->save();
         return redirect('client/ticket/'.$ticket->id)->with('success','تیکت مورد نظر ایجاد شد');
     }
 }

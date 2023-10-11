@@ -64,11 +64,16 @@
                             <input type="text" class="form-control" value="{{$ticket->user->email}}" disabled>
                         </div>
                     </div>
-                    <form action="{{route('client.store.reply',$ticket->id)}}" class="mt-4" method="POST">
+                    <form action="{{route('client.store.reply',$ticket->id)}}" class="mt-4" method="POST" enctype="multipart/form-data">
                         @csrf
                         <label for=message">پیام</label>
                         <textarea name="message" id="message" class="form-control @error('message') is-invalid @enderror" cols="30" rows="5"></textarea>
                         @error('message') <p class="text-danger">{{$message}}</p> @enderror
+                        <div class="my-3">
+                            <label for="formFile" class="form-label">بارگذاری تصویر</label>
+                            <input class="form-control" type="file" id="formFile" name="file">
+                            @error('file') <p class="text-danger">{{$message}}</p> @enderror
+                        </div>
                         <div class="d-flex flex-row justify-content-center mt-4">
                             <button type="submit" class="btn btn-info text-white">ارسال پیام</button>
                         </div>
@@ -89,6 +94,13 @@
                 </div>
                 <div class="card-body">
                     <p>{{$ticket->message}}</p>
+                    @if($ticket->file !== null)
+                        <div style="font-size: 15px">
+                            <hr>
+                            <p>پیوست</p>
+                            <img width="80px" src="{{asset('storage/uploads/' . $ticket->file)}}" alt="">
+                        </div>
+                    @endif
                 </div>
             </div>
             @foreach ($ticket->replies->sortBy('created_at') as $reply)
@@ -105,11 +117,16 @@
                     </div>
                     <div class="card-body">
                         <p>{{$reply->message}}</p>
+                        @if($reply->file !== null)
+                            <div style="font-size: 15px">
+                                <hr>
+                                <p>پیوست</p>
+                                <img width="80px" src="{{asset('storage/uploads/' . $reply->file)}}" alt="">
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endforeach
-
-
         </div>
     </div>
 </div>

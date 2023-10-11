@@ -13,3 +13,11 @@ $(document).ready(() => {
         $("#response-body").slideToggle("slow");
     });
 });
+
+$('#reload-captcha').click(function() {
+
+    $.get('/reload-captcha', function(data) {
+        $('#captcha-image').attr('src', data);
+    });
+
+});

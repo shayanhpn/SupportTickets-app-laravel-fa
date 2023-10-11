@@ -26,7 +26,8 @@ class MainRequest extends FormRequest
             'priority' => ['required','in:کم,متوسط,زیاد'],
             'section' => ['required','in:فنی,مالی,ارتباط عمومی'],
             'message' => ['required','max:2000'],
-            'file' => ['nullable','image','mimes:jpg,png,jpeg,gif','max:5120']
+            'file' => ['nullable','image','mimes:jpg,png,jpeg,gif','max:5120'],
+            'captcha' => ['required','captcha']
         ];
     }
     public function messages()
@@ -40,8 +41,11 @@ class MainRequest extends FormRequest
             'section.in' => 'لطفا از مقدار ورودی های مجاز استفاده کنید',
             'message.required' => 'وارد کردن پیام الزامی می باشد',
             'message.max' => 'کارکترهای ورودی بیش از حد مجاز',
+            'file.image' => 'لطفا از پسوندهای معتبر تصویر استفاده کنید',
             'file.mimes' => 'لطفا از پسوند های مجاز تصویر مانند jpg,jpeg,png,gif استفاده نمایید',
             'file.max' => 'حداکثر حجم مجاز جهت بارگذاری 5MB می باشد',
+            'captcha.required' => 'وارد کردن کد امنیتی الزامی است',
+            'captcha.captcha' => 'لطفا کد امنیتی صحیح را وارد کنید',
         ];
     }
 }

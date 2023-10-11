@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DeleteTicketController;
 use App\Http\Controllers\Admin\DeleteUserController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ViewAllTicketsController;
+use App\Http\Controllers\capthca\CaptchaController;
 use App\Http\Controllers\Ticket\CloseTicketController;
 use App\Http\Controllers\Ticket\ProccessTicketController;
 use App\Http\Controllers\Ticket\SendReplyController;
@@ -31,9 +32,9 @@ Route::get('/login',[LoginController::class,'showLogin'])->name('login');
 Route::post('/login',[LoginController::class,'login']);
 Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 
+Route::get('/create-ticket',[CreateTicketController::class,'showCreateTicket'])->name('create-ticket')->middleware('auth');
+Route::post('/create-ticket',[CreateTicketController::class,'createTicket'])->middleware('auth');
 
-Route::get('/create-ticket',[CreateTicketController::class,'showCreateTicket'])->name('create-ticket');
-Route::post('/create-ticket',[CreateTicketController::class,'createTicket']);
 
 Route::prefix('/client')->name('client.')->middleware('auth')->group(function(){
     Route::get('/panel',[DashboardController::class,'showDashboard'])->name('panel');
@@ -60,5 +61,5 @@ Route::prefix('/admin')->name('admin.')->middleware('admin')->group(function(){
 });
 
 
-
+Route::get('/reload-captcha',[CaptchaController::class,'reloadCaptcha']);
 
