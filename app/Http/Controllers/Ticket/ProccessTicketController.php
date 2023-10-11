@@ -11,7 +11,13 @@ class ProccessTicketController extends Controller
 {
     public function showProccessTicket(Ticket $id)
     {
-        return view('ticket.view-ticket',['ticket'=>$id]);
+        if(auth()->user()->id === $id->user_id || auth()->user()->isAdmin)
+        {
+            return view('ticket.view-ticket',['ticket'=>$id]);
+        }else{
+            abort(403);
+        }
+
     }
 
 }

@@ -15,9 +15,11 @@ class UserTicketsController extends Controller
     }
     public function showActiveUsersTickets(){
         $tickets = Ticket::where('user_id',auth()->user()->id)
-            ->where('status','پاسخ داده شده')
-            ->orWhere('status','در انتظار پاسخ')
-            ->get();
+        ->where(function($query){
+            $query->where('status','در انتظار پاسخ')
+                ->orWhere('status','پاسخ داده شده');
+        })
+            ->paginate(10);
 
         return view('user.active-tickets',['tickets' => $tickets]);
     }

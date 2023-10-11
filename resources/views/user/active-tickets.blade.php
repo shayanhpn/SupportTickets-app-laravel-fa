@@ -34,5 +34,8 @@
             @endforelse
             </tbody>
         </table>
+        <div class="d-flex flex-row justify-content-center">
+            {{$tickets->links()}}
+        </div>
     </div>
 </div>
