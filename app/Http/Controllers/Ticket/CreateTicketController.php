@@ -9,11 +9,14 @@ use Illuminate\Http\Request;
 
 class CreateTicketController extends Controller
 {
+    // Display Create Ticket Page
     public function showCreateTicket()
     {
         return view('ticket.create-ticket');
     }
 
+
+    // Create Ticket Page
     public function createTicket(MainRequest $request){
         $ticket = new Ticket;
         if($request->hasFile('file'))

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class UserTicketsController extends Controller
 {
+    // Display All User's Tickets
     public function showAllUsersTickets()
     {
         $tickets = Ticket::where('user_id',auth()->user()->id)->paginate(10);

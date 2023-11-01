@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Gate;
 
 class UpdateUserController extends Controller
 {
+    // Display Update User
     public function showUpdate(User $id){
         if(auth()->user()->id === $id->id)
         {
@@ -19,6 +20,7 @@ class UpdateUserController extends Controller
 
     }
 
+    // Update User Function
     public function updateUser(UserRequest $request,User $id)
     {
         if(auth()->user()->id === $id->id)

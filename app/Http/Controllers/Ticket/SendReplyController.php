@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class SendReplyController extends Controller
 {
+    // Send Ticket's Reply Function
     public function sendReply(Request $request,Ticket $id)
     {
         $request->validate([

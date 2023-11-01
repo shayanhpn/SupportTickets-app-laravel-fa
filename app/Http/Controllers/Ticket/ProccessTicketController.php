@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class ProccessTicketController extends Controller
 {
+    // Display Proccess Ticket Page
     public function showProccessTicket(Ticket $id)
     {
         if(auth()->user()->id === $id->user_id || auth()->user()->isAdmin)

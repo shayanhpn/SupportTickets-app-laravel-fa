@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 
 class DeleteTicketController extends Controller
 {
+    // Display Delete Ticket
     public function showDeleteTicket(Ticket $id)
     {
         return view('admin.delete-ticket',['ticket' => $id]);
     }
 
+    // Delete Ticket Function
     public function deleteTicket(Ticket $id)
     {
         $id->delete();

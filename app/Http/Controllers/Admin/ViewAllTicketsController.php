@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ViewAllTicketsController extends Controller
 {
+    // Display All Tickets
     public function showTickets()
     {
         $tickets = Ticket::orderBy('created_at','desc')->paginate(10);

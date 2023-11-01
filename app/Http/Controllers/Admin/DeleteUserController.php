@@ -8,9 +8,12 @@ use App\Models\User;
 
 class DeleteUserController extends Controller
 {
+    // Display Delete User Page
     public function showDeleteUser(User $id){
         return view('admin.delete-user',['user'=>$id]);
     }
+
+    // Delete User Function
     public function deleteUser(User $id)
     {
         $id->delete();

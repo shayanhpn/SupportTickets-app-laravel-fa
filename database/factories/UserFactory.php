@@ -15,6 +15,8 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+     // User Factory
     public function definition(): array
     {
         return [

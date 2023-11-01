@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    // Display DashBoard Page
     public function showDashboard()
     {
         if(auth()->check()){

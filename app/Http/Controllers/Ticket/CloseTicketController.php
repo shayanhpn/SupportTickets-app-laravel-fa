@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class CloseTicketController extends Controller
 {
+    // Display Close Ticket Page
     public function showCloseTicket(Ticket $id)
     {
         if(auth()->user()->id === $id->id || $id->isAdmin)
@@ -17,6 +18,8 @@ class CloseTicketController extends Controller
         }
         abort(403);
     }
+
+    // Close Ticket Page
     public function closeTicket(Ticket $id)
     {
         if(auth()->user()->id === $id->id || $id->isAdmin)

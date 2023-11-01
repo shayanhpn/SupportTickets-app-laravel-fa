@@ -19,6 +19,8 @@ class MainRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+
+    // Ticket Validation Rules
     public function rules(): array
     {
         return [
@@ -30,6 +32,7 @@ class MainRequest extends FormRequest
             'captcha' => ['required','captcha']
         ];
     }
+    // Ticket Validation Messages
     public function messages()
     {
         return [

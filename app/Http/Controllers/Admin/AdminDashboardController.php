@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class AdminDashboardController extends Controller
 {
+    // Display Admin Dashboard
     public function showAdminDashboard()
     {
         $tickets = Ticket::orderBy('created_at','desc')->paginate(5);

@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    // Logout User Function
     public function logout()
     {
         auth()->logout();
         return redirect()->route('login')->with('danger','شما خارج شدید');
     }
+    
+    // Display Login Page
     public function showLogin()
     {
         return view('auth.login');

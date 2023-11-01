@@ -19,7 +19,7 @@ class UserRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-
+    // User Validation Messages
     public function messages()
     {
         return [
@@ -39,6 +39,7 @@ class UserRequest extends FormRequest
         ];
     }
 
+    // User Validation Rules
     public function rules(): array
     {
         return [

@@ -19,10 +19,14 @@ class RegisterController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     // Display Registeration Form
     public function showRegistrationForm()
     {
         return view('auth.register');
     }
+
+    // Register Function
     public function register(UserRequest $request)
     {
         $user = User::create($request->validated());
