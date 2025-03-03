@@ -7,8 +7,7 @@ use App\Models\User;
 
 class ViewUserController extends Controller
 {
-    // Display Single User Page
-    public function showSingleUser(User $id){
+    // Display Single User Page - Page    public function showSingleUser(User $id){
         return view('user.view-user',['user' => $id]);
     }
 }
